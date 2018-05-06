@@ -36,37 +36,7 @@ class MainPresenter<V: MainMVPView> @Inject constructor(val pokemonApiService: P
             }
         }
 
-        /*
-        pokemonApiService.getAllPokemon().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe({
-        resulut -> getView()?.showPokemons(resulut)
-
-        })*/
-
-
         pokemonApiService.getAllPokemonUrl().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe(observerDataUrl)
-
-        /*
-        pokemonApiService.getAllPokemonUrl().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe{ res ->
-
-                list = res.results
-
-            res.results?.map { pokemonApiService.getPokemonPicture(it.url).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe{ res3 ->
-                pokemons.add(res3)
-            }}
-        }
-
-
-        list?.map { res2 ->  pokemonApiService.getPokemonPicture(res2.url).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe{ res3 ->
-            pokemons.add(res3)
-        }}*/
-
-        /*
-
-        pokemonApiService.getAllPokemonUrl().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io()).subscribe{ res ->
-            res.results?.map { res2 ->  pokemonApiService.getPokemonPicture(res2.url).subscribeOn(Schedulers.io()).subscribe{ res3 ->
-                pokemons.add(res3)
-            }}
-        }*/
     }
 
     override fun isViewIsAttached(): Boolean {
